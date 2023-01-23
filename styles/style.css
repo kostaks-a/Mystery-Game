@@ -2,51 +2,109 @@ body {
     padding: 0;
     text-align: center;
     margin : 0;
-    background-color: aqua;
+    background-image: url(/images/tiles-background.png);
 
   }
-  
-  .game-intro {
-    float: left;
-    padding: 0% 10%;
-  }
+
+#instructions {
+  position: absolute;
+  top: 30%;
+  width: 20%;
+  margin-left: 30px;
+
+}
+
+ #instructions h1 , h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #FF3399;
+ }
+
+ #instructions p {
+  margin: 5px;
+  color: #FF3399;
+ }
   
   .game-intro p {
-    font-size: 18px;
+    font-size: 20 px;
     font-family: "Verdana"
   }
   
+  .container {
+    position: relative ;
+    width: 100% ;
+  }
+
   .intro-img {
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: auto;
   }
+
+
   
-  .arrows-img {
-    width: 150px;
-  }
-  
-  body button {
+  .game-intro button {
     font-size: 30px;
-    background-color: #870007;
+    background-color: transparent;
     color: #fff;
     padding: 20px 40px;
     border: 0;
     box-shadow: 0;
     border-radius: 5px;
     margin-bottom: 20px;
+    position: absolute;
+    top: 40%;
+    left: 75%;
   }
 
   #start-button{
-    color: #FF3399
-    ;
+    font-size: 30px;
+    background-color: transparent;
+    color: #fff;
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 90%;
+    left: 45%
+    
   }
   
-  #game-board {
-      float: left;
-      padding: 20px 0px;
+  #registration-page {
+    text-align: center;
+      height: 100%;
+      width: auto;
+      
+
   }
 
   #welcome-img {
     width: 100%;
-    height: 100%;
+    height: auto;
+  }
+
+  #drink-button {
+    position:absolute;
+    top: 50%;
+    left: 60%;
+    font-size: 30px;
+    background-color: transparent;
+    color:yellow;
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+  }
+
+  #canvas {
+    width:100%;
+    height:auto;
+    background-image: url(/images/barcounter_img.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+   
   }
