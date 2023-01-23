@@ -89,7 +89,7 @@ body {
     top: 50%;
     left: 60%;
     font-size: 30px;
-    background-color: transparent;
+    background-color: red;
     color:yellow;
     padding: 20px 40px;
     border: 0;
@@ -98,6 +98,35 @@ body {
     margin-bottom: 20px;
 
   }
+
+  #scoreboard{
+    position:absolute;
+    width: 100%;
+    top: 15%;
+  }
+
+#tabloids {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+  margin: 0px 20px 20px 20px;
+}
+li {
+  list-style-type: none;
+  border: 2px solid red;
+  border-radius: 5px;
+  padding: 20px;
+ 
+}
+
+#alcohol-level {
+  margin-left: 200px;
+}
+
+#timer {
+  
+}
+
 
   #canvas {
     width:100%;
@@ -108,3 +137,6 @@ body {
     position: relative;
    
   }
+
+  
+  
