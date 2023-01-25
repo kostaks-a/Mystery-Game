@@ -8,26 +8,38 @@
     <title>Mystery Bar</title>
   </head>
   <body>
-    <div class="game-intro container">
-      <div id="instructions">
+     <!-- <section id="game-intro" class="container">
+      <img src="./images/intro_img.jpg" alt="" class="intro-img" />
+      <div id="intro">
         <h1>Mystery Bar</h1>
-        <h2>A game of dare</h2>
-        <p>A friend of yours challenged you to visit this bar</p>
-        <p>Are you ready to take the challege?</p>
-  
+        <h2>A game of dare</h2> -->
+        <!-- <p>A friend of yours suggested you to visit this bar</p>
+        <p>Are you ready to take the challege?</p> -->
+        <!-- <button id="enter-button" class="bn">Enter the bar<button></button>
       </div>
-     <div>
-        <img src="./images/intro_img.jpg" alt="" class="intro-img" />
-        <button id="enter-button"><span>Enter the bar</span><button>
+     <div>      
       </div>  
-    </div>
+    </section> -->
 
-   <!--   <div id="registration-page" class="container">
+   <!-- <section id="registration-page" class="container">
         <img src="/images/welcome_img.jpg" alt="" id="welcome-img">
-        <button id="start-button">StartGame</button>
-    </div> -->
+        <div id="name-input">
+          <h2>Welcome to Mystery Bar</h2>
+          <h3>Our rules</h3>
+          <ul>
+            <li>The bartender will be serving you a mystery drink every 15mins</li>
+            <li>You can choose if you want to pick it and reveal the drink</li>
+            <li>You can stay in the bar for only an hour</li>
+            <li>If you score more 1000 points the bill is on us</li>
+            <li>Be careful though.If you get drunk, the game ends for you</li>
 
-   <div id="game-screen">
+          </ul>
+
+       </div>
+        <button id="start-button">StartGame</button>
+   </section> -->
+
+   <section id="game-screen">
       <img src="/images/barcounter_img.jpg">
       <button id="drink-button">Will you pick it?</button>
       <nav id="scoreboard">
@@ -35,16 +47,28 @@
           <li><span>Score:</span><span id="score"></span></li>
           <li><span>Timer:</span><span id="timer"></span></li>
           <li class="alcohol-li"><span>Alcohol:</span><span id="alcohol-level"></span></li>
-          <li><span>Drinks</span><span id="drinks-consumed"></span></li>
+          <li><span>Drinks:</span><span id="drinks-consumed"></span></li>
         </ol>
       </nav>
-      <div id="message"><span id="message-1"></span><span id="message-2"></span></div>
-      <div id="container-game-screen">
-      <button id="start-button-final">
-        <i class="fas fa-play"></i>
-      </button>
-      <span id="play">Press play</span>
-    </div>
+        <div id="message"><span id="message-1"></span><span id="message-2"></span></div>
+        <div id="container-game-screen">
+          <button id="play-button">
+            <i class="fas fa-play"></i>
+          </button>
+          <span id="play-text">Press play</span>
+        </div>
+    </section>
+
+    <section class="win-screen" >
+      <div>
+        <img id="winner-img" src="/images/winner.jpg">
+        <div id="winner-message">
+          <p>Congrulations</p>
+          <p>You made it</p>
+          
+        </div>
+      </div>
+    </section>
 
 
     <script type="text/javascript" src="/index.js"></script>

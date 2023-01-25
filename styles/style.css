@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
+
 body {
     padding: 0;
     text-align: center;
@@ -13,7 +14,7 @@ body {
 
   
 
-#instructions {
+#intro {
   position: absolute;
   top: 30%;
   width: 20%;
@@ -21,7 +22,7 @@ body {
 
 }
 
-h1 , h2 , p{
+h1 , h2 , h3 ,p{
   margin-left: 30px;
   position: relative;
   font-size: 35px;
@@ -41,20 +42,21 @@ h1 , h2 , p{
  
 
 
- #instructions p {
+ #intro p {
   font-family: 'Conforta' , cursive;
   font-size: 25px;
   font-weight: 700;
-  color: fuchsia;
+ 
  }
   
-  .game-intro p {
+  #game-intro p {
     font-size: 20 px;
     font-family: "Verdana"
   }
   
   .container {
-    position: relative ;
+    position: absolute ;
+
     width: 100% ;
   }
 
@@ -63,23 +65,69 @@ h1 , h2 , p{
     height: auto;
   }
 
-
+  #enter-button {
+    position: relative;
+    top: 60%;
+    left: 5%;
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: whitesmoke;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
   
-  .game-intro button {
-    font-size: 30px;
-    background-color: transparent;
-    color: #fff;
-    padding: 20px 40px;
-    border: 0;
-    box-shadow: 0;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 40%;
-    left: 75%;
+  #enter-button:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  
+  #enter-button:focus {
+    outline: none;
+  }
+  
+  #enter-button.bn {
+    background-image: linear-gradient(
+        to right,
+        #6253e1,
+        #852d91,
+        #a3a1ff,
+        #f24645
+      );
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
   }
 
-  #start-button{
+
+#name-input{
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  font-family: 'Conforta' , cursive;
+  font-size: 30px;
+  font-weight: 700;;
+  
+}
+#name-input h2 , h3 {
+  color: black;
+  margin-bottom: 2px;
+}
+ul li {
+  color: black;
+}
+  
+
+#start-button{
     font-size: 30px;
     background-color: transparent;
     color: #fff;
@@ -89,8 +137,9 @@ h1 , h2 , p{
     border-radius: 5px;
     margin-bottom: 20px;
     position: absolute;
-    top: 90%;
-    left: 45%
+    top: 50%;
+    left: 50%;
+    visibility: hidden;
     
   }
   
@@ -122,10 +171,10 @@ h1 , h2 , p{
  }
 
  .box{
-  width: 120px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   position: absolute;
-  top: 37%;
+  top: 39%;
   left: 42%
  }
 
@@ -167,7 +216,7 @@ li {
   padding:20px 21px 25px 21px;
   border-radius: 6px;
   top: 45%;
-  left: 30%;
+  left: 28%;
   margin-right: 40px;
   color:black;
   background-color:#146f79;
@@ -211,7 +260,7 @@ li {
   width: 0;
   height: 0;
   border-top: 13px solid transparent;
-  border-right: 26px solid blueviolet;
+  border-right: 26px solid #e9007f;
   border-bottom: 13px solid transparent;
 }
 
@@ -220,12 +269,13 @@ li {
   top: 50%;
   left: 60%;
   font-size: 30px;
-  background-color: blueviolet;
+  background-color: #e9007f;
   color:yellow;
   padding: 20px 40px;
   margin-bottom: 20px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+  border-color: transparent;
   border-radius: 10px;
   visibility: hidden;
 }
@@ -246,7 +296,7 @@ li {
 
 }
 
-#start-button-final {
+#play-button {
   text-decoration: none;
   background-image: linear-gradient(to right, #6400a4, #5e07b5, #5411c6, #411bd8, #1225eb);
   border: 7px dotted white;
@@ -256,7 +306,7 @@ li {
   position: relative;
 }
 
-#start-button-final::after {
+#play-button::after {
   position: absolute;
   content: '';
   bottom: -7px;
@@ -272,7 +322,7 @@ li {
   animation: anim 800ms linear infinite;
 }
 
-#start-button-final::before {
+#play-button::before {
   position: absolute;
   content: '';
   bottom: -7px;
@@ -288,7 +338,7 @@ li {
   animation: anim 800ms linear 400ms infinite;
 }
 
-#play {
+#play-text {
   color: #fff;
   font-family: sans-serif;
   font-weight: 600;
@@ -307,4 +357,23 @@ li {
       opacity: 0;
   }
 }
+
+.win-screen{
+  display: none;
+  width: 100%;
+  
+}
+#winner-img{
+  position: relative;
+}
+
+#winner-message{
+  position: absolute;
+  font-family: 'Conforta' , cursive;
+  top: 20%;
+  left: 5%;
+
+}
+
+
 
