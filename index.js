@@ -25,41 +25,75 @@ let drinksTotal = 0
 let alcoholLvl = 0
 let randomDrink = ``
 let timer = 0
+let arrData = []
+let newArray = []
+let scoreElem = document.getElementById('score')
+let timerElem = document.getElementById('timer')
+let alcoholElem = document.getElementById('alcohol-level')
+let drinksElem = document.getElementById('drinks-consumed')
 
-
-
-function calculations(drinkType) {
-  document.getElementById('message').style.visibility = 'visible'
-  if (drinkType.src.includes(`water`)){
-    alcoholLvl -= 10 
+function calculation(drinkType){
+   
+    if (drinkType.src.includes(`water`))
+    {
+    if (alcoholLvl>0){
+    alcoholLvl -= 10
+    }else{
     score += 0
-    document.getElementById('message-1').innerText = 'Looks like you need some water'
-    document.getElementById('message-2').innerText = 'Here you are..'
-  }
+  }}
   else if (drinkType.src.includes(`cola`)){
-    alcoholLvl += 50
+    alcoholLvl -= 10
     score += 25
-    document.getElementById('message-1').innerText = 'Just a cola for you this time'
-    document.getElementById('message-2').innerText = 'You have to take it easy'
-    }
+   }
   else if (drinkType.src.includes(`beer`)){
     alcoholLvl += 20
     score += 100
     beersTotal++
-    document.getElementById('message-1').innerText = 'Here is a beer for you'
-    document.getElementById('message-2').innerText = 'Enjoy :)'
     }
   else if (drinkType.src.includes(`artini`)){
-    alcoholLvl += 30
+    alcoholLvl += 25
     score += 200
     martinisTotal++
-    document.getElementById('message-1').innerText = 'Espresso Martini time'
-    document.getElementById('message-2').innerText = 'Is gonna be a long night...'
   }
   drinksTotal = beersTotal + martinisTotal
   timer = timer + 150
-  console.log (timeConverter(timer))
+  arrData[0] = score
+  arrData[1] = timer
+  arrData[2] = alcoholLvl
+  arrData[3] = drinksTotal
+
+  //arrData.push(score, timer ,alcoholLvl , drinksTotal)
+  scoreElem.innerText = score ;
+  timerElem.textContent = timeConverter(timer) ;
+  alcoholElem.innerHTML = `${alcoholLvl} %`;
+  drinksElem.innerText = drinksTotal;
+  console.log (`${arrData}`)
+  return arrData;
 }
+
+
+function bartenderMsg(drinkType) {
+  document.getElementById('message').style.visibility = 'visible'
+  if (drinkType.src.includes(`water`)){
+    document.getElementById('message-1').innerText = 'Looks like you need some water'
+    document.getElementById('message-2').innerText = 'Here you are..'
+  }
+  else if (drinkType.src.includes(`cola`)){
+    document.getElementById('message-1').innerText = 'Just a cola for you this time'
+    document.getElementById('message-2').innerText = 'You have to take it easy'
+    }
+  else if (drinkType.src.includes(`beer`)){
+    document.getElementById('message-1').innerText = 'Here is a beer for you'
+    document.getElementById('message-2').innerText = 'Enjoy :)'
+    }
+  else if (drinkType.src.includes(`martini`)){
+    document.getElementById('message-1').innerText = 'Espresso Martini time'
+    document.getElementById('message-2').innerText = 'Is gonna be a long night...'
+  }
+}
+
+
+
 
 function timeConverter(minutes){
   if (minutes < 60){
@@ -71,6 +105,8 @@ function timeConverter(minutes){
   }
    
 }
+
+
 
 
 function mysteryBox(){
@@ -86,11 +122,10 @@ function  appendDrink(){
   img.src = randomDrink.src
   img.classList.add("drink")
   document.body.appendChild(img)
-  calculations (randomDrink)
-  document.getElementById('score').innerHTML = score
-  document.getElementById('timer').textContent = timeConverter(timer) 
-  document.getElementById('alcohol-level').innerHTML = alcoholLvl
-  document.getElementById('drinks-consumed').innerText = drinksTotal
+  bartenderMsg(randomDrink)
+  calculation(randomDrink)
+  console.log (arrData)
+
 }
 
 
@@ -99,9 +134,10 @@ function initialize(){
     document.querySelector('.box').style.visibility = 'hidden'
     document.getElementById('drink-button').style.visibility = 'hidden'
     appendDrink()
-  }}
+}}
 
-  function updateDrinks(){
+  
+function updateDrinks(){
     document.querySelector('.box').style.visibility = 'visible'
     document.getElementById('drink-button').style.visibility = 'visible'
     const drinkExists = document.querySelector('.drink')
@@ -111,49 +147,64 @@ function initialize(){
     //document.getElementById('message-1').innerText = ''
     //document.getElementById('message-2').innerText = ''
     initialize();
+}
+
+
+function repeatGame(){
+   document.getElementById('play-text').innerText = 'Play again'
+   document.getElementById('play-text').style.visibility = 'visible'
+   document.getElementById('play-button').style.visibility = 'visible'
+      loadGame()
     }
 
-
-    function repeatGame(){
-      document.getElementById('play-text').innerText = 'Play again'
-      document.getElementById('play-text').style.visibility = 'visible'
-      document.getElementById('play-button').style.visibility = 'visible'
-      loadGame()
+function reloadGame(){
+  document.querySelector('.win-screen').style.display = 'none'
+  document.querySelector('#game-screen').style.removeProperty('display')
+  document.getElementById('message').style.visibility = 'hidden'
+  repeatGame()
     }
 
 ///////GAME START PAGE ///////
 
 function startGame(){
- 
+ score = 0
+ alcoholLvl = 0
+ timer = 0
+ scoreElem.innerText = score ;
   mysteryBox()
   document.getElementById('drink-button').style.visibility = 'visible'
   initialize()
   const intervalId = setInterval(function () {
-    if (alcoholLvl >= 1000 ){
+    if (alcoholLvl >= 100 ){
+      newArray = calculations(drinkType)
       document.querySelector('.drink').remove()
       document.getElementById('message-1').innerText = `I am sorry...`;
       document.getElementById('message-2').innerText = `It's time to leave the bar`;
+      
       repeatGame()
       clearInterval(intervalId);
       return;
     }
-    else if( timer >= 200 && alcoholLvl < 1000){
+    else if( timer >= 90 && alcoholLvl < 100){
+      
+      //console.log (newArray)
       document.getElementById('game-screen').style.display = 'none'
       document.querySelector('.box').style.display = 'none'
       document.querySelector('.drink').style.display = 'none'
       document.querySelector('.win-screen').style.display = 'block'
-     // document.getElementById('play-text').innerText = 'Play again'
-     // document.getElementById('play-text').style.visibility = 'visible'
-     // document.getElementById('play-button').style.visibility = 'visible'
-      
+      document.getElementById('replay-button').onclick = () => {
+        
+        reloadGame()
+      }    
+     //document.querySelector('.box').style.display = 'none'
      // setTimeout(() => { repeatGame() })
 
-      setTimeout(() => {
-        clearInterval(intervalId);
-        return;
-      }, 10000)
-      clearInterval(intervalId);
-      return;
+       //setTimeout(() => {
+       //  clearInterval(intervalId);
+       //    return;
+       // }, 10000)
+       //clearInterval(intervalId);
+       //return;
 
   
      }
@@ -167,9 +218,9 @@ function startGame(){
 
 
 function loadGame(){
-  document.querySelector('#registration-page').style.display = "none"
+  //document.querySelector('#registration-page').style.display = "none"
   
-  document.querySelector('#game-screen').style.removeProperty('display')
+  //document.querySelector('#game-screen').style.removeProperty('display')
   document.getElementById('play-button').onclick = () => {
     
     document.getElementById('play-button').style.visibility = 'hidden'
@@ -180,18 +231,18 @@ function loadGame(){
   }
 }
 
-
-
-function registration(){
+loadGame()
+/*function registration(){
   document.querySelector('#game-intro').style.display = "none"
   document.querySelector('#registration-page').style.removeProperty('display')
-  audio.play();
+  //audio.play();
   document.getElementById('start-button').style.visibility = 'visible'
   document.getElementById('start-button').onclick = () => {
     loadGame()
   }
 
 }
+*/
 
 //document.getElementById('game-screen').style.display = 'none'
 //window.onload = () => {
@@ -200,11 +251,11 @@ function registration(){
 //}
 //////// STARTING PAGE ////
 
-window.onload = () => {
+/*window.onload = () => {
    document.querySelector('#game-screen').style.display = "none"
    document.querySelector('#registration-page').style.display = "none"
    document.getElementById('enter-button').onclick = () => {
     registration()
    }
   }
-  
+  */

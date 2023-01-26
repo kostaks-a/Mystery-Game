@@ -8,19 +8,17 @@
     <title>Mystery Bar</title>
   </head>
   <body>
-     <section id="game-intro" class="container">
+     <!-- <section id="game-intro" class="container">
       <img src="./images/intro_img.jpg" alt="" class="intro-img" />
       <div id="intro">
         <h1>Mystery Bar</h1>
-        <h2>A game of dare</h2> -->
-        <!-- <p>A friend of yours suggested you to visit this bar</p>
-        <p>Are you ready to take the challege?</p> -->
+        <h2>A game of dare</h2>
         <button id="enter-button" class="bn">Enter the bar<button></button>
       </div>
       <div></div>  
-    </section>
+    </section> -->
 
-    <section id="registration-page" class="container">
+    <!-- <section id="registration-page" class="container">
         <img src="./images/welcome_img.jpg" alt="" id="welcome-img">
         <div id="name-input">
           <h2>Welcome to Mystery Bar</h2>
@@ -28,31 +26,29 @@
           <ul>
             <li>The bartender will be serving you a mystery drink every 15mins</li>
             <li>You can choose if you want to pick it and reveal the drink</li>
-            <li>You can stay in the bar for only an hour</li>
-            <li>If you score more 1000 points the bill is on us</li>
+            <li>You can stay in the bar for only 1.5 hour</li>
+            <li>If you score more 500 points the bill is on us</li>
             <li>Be careful though.If you get drunk, the game ends for you</li>
 
           </ul>
         </div>
-        <button id="start-button">StartGame</button>
-   </section>
+        <button id="start-button" class="bn">StartGame</button>
+   </section> -->
 
    <section id="game-screen">
       <img src="./images/barcounter_img.jpg">
-      <button id="drink-button">Will you pick it?</button>
+      <button id="drink-button">Click here to grab it</button>
       <nav id="scoreboard">
         <ol id="tabloids">
           <li><span>Score:</span><span id="score"></span></li>
           <li><span>Timer:</span><span id="timer"></span></li>
-          <li class="alcohol-li"><span>Alcohol:</span><span id="alcohol-level"></span></li>
+          <li class="alcohol-li"><span>Alcohol %:</span><span id="alcohol-level"></span></li>
           <li><span>Drinks:</span><span id="drinks-consumed"></span></li>
         </ol>
       </nav>
         <div id="message"><span id="message-1"></span><span id="message-2"></span></div>
         <div id="container-game-screen">
-          <button id="play-button">
-            <i class="fas fa-play"></i>
-          </button>
+          <button id="play-button"></button>
           <span id="play-text">Press play</span>
         </div>
     </section>
@@ -63,8 +59,12 @@
         <div id="winner-message">
           <p>Congrulations</p>
           <p>You made it</p>
-          
         </div>
+         <div id="container-win-screen">
+          <button id="replay-button"></button>
+          <span id="replay-text">Play again</span>
+        </div>
+        
       </div>
     </section>
 

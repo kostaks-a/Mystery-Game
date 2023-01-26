@@ -5,7 +5,7 @@ body {
     padding: 0;
     text-align: center;
     margin : 0;
-    background-image: url(./images/tiles-background.png);
+    background-image: url('../images/tiles-background.png');
     background-color: #2f3742;
     color: #dfe0e4;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif , 'Comfortaa', cursive;
@@ -56,7 +56,6 @@ h1 , h2 , h3 ,p{
   
   .container {
     position: absolute ;
-
     width: 100% ;
   }
 
@@ -65,7 +64,7 @@ h1 , h2 , h3 ,p{
     height: auto;
   }
 
-  #enter-button {
+  #enter-button , #start-button{
     position: relative;
     top: 60%;
     left: 5%;
@@ -85,7 +84,7 @@ h1 , h2 , h3 ,p{
     transition: all 0.4s ease-in-out;
   }
   
-  #enter-button:hover {
+  #enter-button:hover , #start-button:hover{
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
@@ -93,11 +92,11 @@ h1 , h2 , h3 ,p{
     transition: all .4s ease-in-out;
   }
   
-  #enter-button:focus {
+  #enter-button:focus , #start-button:focus{
     outline: none;
   }
   
-  #enter-button.bn {
+  #enter-button.bn , #start-button.bn{
     background-image: linear-gradient(
         to right,
         #6253e1,
@@ -111,7 +110,7 @@ h1 , h2 , h3 ,p{
 
 #name-input{
   position: absolute;
-  top: 10%;
+  top: 0%;
   left: 30%;
   font-family: 'Conforta' , cursive;
   font-size: 30px;
@@ -119,29 +118,31 @@ h1 , h2 , h3 ,p{
   
 }
 #name-input h2 , h3 {
-  color: black;
-  margin-bottom: 2px;
+  text-align: center;
+  margin:0;
 }
+
+#registration-page h2{
+  margin-bottom: 30px;
+}
+
+#registration-page ul{
+  margin:0
+}
+
 ul li {
-  color: black;
-}
+  margin: 0;
+ 
+} 
   
 
 #start-button{
-    font-size: 30px;
-    background-color: transparent;
-    color: #fff;
-    padding: 20px 40px;
-    border: 0;
-    box-shadow: 0;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    text-align: center;
     position: absolute;
-    top: 50%;
-    left: 20%;
-    visibility: hidden;
-    
-  }
+    top: 80%;
+    left: 45%;
+   
+   }
   
   #registration-page {
     text-align: center;
@@ -287,7 +288,7 @@ li {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
 }
 
-#container-game-screen{
+#container-game-screen, #container-win-screen{
   position: absolute;
   top: 75%;
   left: 50%;
@@ -296,7 +297,7 @@ li {
 
 }
 
-#play-button {
+#play-button , #replay-button{
   text-decoration: none;
   background-image: linear-gradient(to right, #6400a4, #5e07b5, #5411c6, #411bd8, #1225eb);
   border: 7px dotted white;
@@ -306,7 +307,7 @@ li {
   position: relative;
 }
 
-#play-button::after {
+#play-button::after , #replay-button::after{
   position: absolute;
   content: '';
   bottom: -7px;
@@ -322,7 +323,7 @@ li {
   animation: anim 800ms linear infinite;
 }
 
-#play-button::before {
+#play-button::before , #replay-button::before{
   position: absolute;
   content: '';
   bottom: -7px;
@@ -338,7 +339,7 @@ li {
   animation: anim 800ms linear 400ms infinite;
 }
 
-#play-text {
+#play-text , #replay-text{
   color: #fff;
   font-family: sans-serif;
   font-weight: 600;
@@ -373,6 +374,11 @@ li {
   top: 20%;
   left: 5%;
 
+}
+#container-win-screen {
+  position:absolute;
+  top: 60%;
+  left: 15%;
 }
 
 
