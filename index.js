@@ -57,7 +57,7 @@ function calculations(drinkType) {
     document.getElementById('message-2').innerText = 'Is gonna be a long night...'
   }
   drinksTotal = beersTotal + martinisTotal
-  timer = timer + 15
+  timer = timer + 150
   console.log (timeConverter(timer))
 }
 
@@ -142,10 +142,11 @@ function startGame(){
       document.querySelector('.box').style.display = 'none'
       document.querySelector('.drink').style.display = 'none'
       document.querySelector('.win-screen').style.display = 'block'
-      document.getElementById('play-text').innerText = 'Play again'
-      document.getElementById('play-text').style.visibility = 'visible'
-      document.getElementById('play-button').style.visibility = 'visible'
-      //repeatGame()
+     // document.getElementById('play-text').innerText = 'Play again'
+     // document.getElementById('play-text').style.visibility = 'visible'
+     // document.getElementById('play-button').style.visibility = 'visible'
+      
+     // setTimeout(() => { repeatGame() })
 
       setTimeout(() => {
         clearInterval(intervalId);
@@ -166,11 +167,11 @@ function startGame(){
 
 
 function loadGame(){
-  //document.querySelector('#registration-page').style.display = "none"
+  document.querySelector('#registration-page').style.display = "none"
   
   document.querySelector('#game-screen').style.removeProperty('display')
   document.getElementById('play-button').onclick = () => {
-    //audio.play()
+    
     document.getElementById('play-button').style.visibility = 'hidden'
     document.getElementById('play-text').style.visibility = 'hidden'
 
@@ -179,31 +180,31 @@ function loadGame(){
   }
 }
 
-loadGame()
+
 
 function registration(){
   document.querySelector('#game-intro').style.display = "none"
   document.querySelector('#registration-page').style.removeProperty('display')
+  audio.play();
+  document.getElementById('start-button').style.visibility = 'visible'
   document.getElementById('start-button').onclick = () => {
     loadGame()
   }
 
 }
 
-/*document.getElementById('game-screen').style.display = 'none'
-window.onload = () => {
-let sign = prompt("Welcome to Mystery Bar. What is your name?");
-document.getElementById('name').innerText += sign
-}
+document.getElementById('game-screen').style.display = 'none'
+//window.onload = () => {
+//let sign = prompt("Welcome to Mystery Bar. What is your name?");
+//document.getElementById('name').innerText += sign
+//}
 //////// STARTING PAGE ////
 
-/*window.onload = () => {
+window.onload = () => {
    document.querySelector('#game-screen').style.display = "none"
    document.querySelector('#registration-page').style.display = "none"
    document.getElementById('enter-button').onclick = () => {
     registration()
    }
-   
-    
   }
-  */
+  
