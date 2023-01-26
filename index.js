@@ -1,21 +1,21 @@
 const water = new Image()
-water.src = "/images/water.png"
+water.src = "./images/water.png"
 
 
 const cola = new Image()
-cola.src = "/images/cola 1.png"
+cola.src = "./images/cola 1.png"
 
 const beer = new Image()
-beer.src = "/images/beer.png"
+beer.src = "./images/beer.png"
 
 const eMartini = new Image()
-eMartini.src = "/images/e-martini.png"
+eMartini.src = "./images/e-martini.png"
 
 const drinksArray = []
 drinksArray.push(water, cola, beer, eMartini)
 
 const audio = new Audio()
-audio.src = "/audio/Donato Dozzy-ST.mp3"
+audio.src = "./audio/Donato Dozzy-ST.mp3"
 
 
 let score = 0
@@ -75,7 +75,7 @@ function timeConverter(minutes){
 
 function mysteryBox(){
   const box = document.createElement('img')
-  box.src = "/images/box.png"
+  box.src = "./images/box.png"
   box.classList.add("box")
   document.body.appendChild(box)
 }
@@ -200,11 +200,11 @@ function registration(){
 //}
 //////// STARTING PAGE ////
 
-//window.onload = () => {
+window.onload = () => {
    document.querySelector('#game-screen').style.display = "none"
    document.querySelector('#registration-page').style.display = "none"
    document.getElementById('enter-button').onclick = () => {
     registration()
    }
-  //}
+  }
   
