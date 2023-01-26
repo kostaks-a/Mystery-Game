@@ -193,18 +193,18 @@ function registration(){
 
 }
 
-document.getElementById('game-screen').style.display = 'none'
+//document.getElementById('game-screen').style.display = 'none'
 //window.onload = () => {
 //let sign = prompt("Welcome to Mystery Bar. What is your name?");
 //document.getElementById('name').innerText += sign
 //}
 //////// STARTING PAGE ////
 
-window.onload = () => {
+//window.onload = () => {
    document.querySelector('#game-screen').style.display = "none"
    document.querySelector('#registration-page').style.display = "none"
    document.getElementById('enter-button').onclick = () => {
     registration()
    }
-  }
+  //}
   
