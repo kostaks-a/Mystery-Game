@@ -16,7 +16,7 @@ drinksArray.push(water, cola, beer, eMartini)
 
 const audio = new Audio()
 audio.src = "./audio/Donato Dozzy-ST.mp3"
-
+audio.volume = 0.1;
 
 let score = 0
 let beersTotal = 0
@@ -230,12 +230,7 @@ function registration(){
 }
 
 
-//document.getElementById('game-screen').style.display = 'none'
-//window.onload = () => {
-//let sign = prompt("Welcome to Mystery Bar. What is your name?");
-//document.getElementById('name').innerText += sign
-//}
-//////// STARTING PAGE //////
+
 
 window.onload = () => {
    winScreen.style.display = "none"
