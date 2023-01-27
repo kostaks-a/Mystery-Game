@@ -25,13 +25,11 @@ let drinksTotal = 0
 let alcoholLvl = 0
 let randomDrink = ``
 let timer = 0
-let arrData = []
-let newArray = []
 let scoreElem = document.getElementById('score')
 let timerElem = document.getElementById('timer')
 let alcoholElem = document.getElementById('alcohol-level')
 let drinksElem = document.getElementById('drinks-consumed')
-let counter = 0
+
 
 
 const message = document.getElementById('message')
@@ -45,68 +43,61 @@ const winScreen = document.querySelector('#win-screen')
 const gameScreen = document.querySelector('#game-screen')
 const replayButton = document.getElementById('replay-button')
 
+
 function calculation(drinkType){
    if (drinkType.src.includes(`water`))
     {
     if (alcoholLvl>0){
-    alcoholLvl += 35
+    alcoholLvl -= 5
     }else{
     score += 10
   }}
   else if (drinkType.src.includes(`cola`)){
-    alcoholLvl += 35
-    score += 25
+    if (alcoholLvl>0){
+      alcoholLvl -= 5}
+    
+    score += 10
    }
   else if (drinkType.src.includes(`beer`)){
-    alcoholLvl += 35
+    alcoholLvl += 15
     score += 100
     beersTotal++
     }
   else if (drinkType.src.includes(`artini`)){
-    alcoholLvl += 35
+    alcoholLvl += 20
     score += 200
     martinisTotal++
   }
   drinksTotal = beersTotal + martinisTotal
   timer = timer + 15
-  //arrData[0] = score
-  //arrData[1] = timer
-  //arrData[2] = alcoholLvl
-  //arrData[3] = drinksTotal
-
-  //arrData.push(score, timer ,alcoholLvl , drinksTotal)
+  
   scoreElem.innerText = score ;
   timerElem.textContent = timeConverter(timer) ;
   alcoholElem.innerHTML = `${alcoholLvl} %`;
   drinksElem.innerText = drinksTotal;
-  //console.log (`${arrData}`)
-  return arrData;
+  
 }
-
-
 
 
 function bartenderMsg(drinkType) {
   message.style.visibility = 'visible'
   if (drinkType.src.includes(`water`)){
-    messageB1.innerText = 'Looks like you need some water'
-    messageB2.innerText = 'Here you are..'
+    messageB1.innerText = 'Looks like you need some water.'
+    messageB2.innerText = 'Here you are.'
   }
   else if (drinkType.src.includes(`cola`)){
-    messageB1.innerText = 'Just a cola for you this time'
-    messageB2.innerText = 'You have to take it easy'
+    messageB1.innerText = 'Just a cola for you this time.'
+    messageB2.innerText = 'You have to take it easy.'
     }
   else if (drinkType.src.includes(`beer`)){
-    messageB1.innerText = 'Here is a beer for you'
+    messageB1.innerText = 'Here is a beer for you.'
     messageB2.innerText = 'Enjoy :)'
     }
   else if (drinkType.src.includes(`martini`)){
-    messageB1.innerText = 'Espresso Martini time'
-    messageB2.innerText = 'Is gonna be a long night...'
+    messageB1.innerText = 'Espresso Martini time!'
+    messageB2.innerText = `It's gonna be a long night...`
   }
 }
-
-
 
 
 function timeConverter(minutes){
@@ -134,7 +125,7 @@ function  appendDrink(){
   document.body.appendChild(img)
   bartenderMsg(randomDrink)
   calculation(randomDrink)
-  //console.log (arrData)
+  
 }
 
 
@@ -158,18 +149,9 @@ function updateDrinks(){
 }
 
 
-
-function reloadGame(){
-  winScreen.style.display = 'none'
-  gameScreen.style.removeProperty('display')
-  message.style.visibility = 'hidden'
-  repeatGame()
-}
-
 ///////GAME START FUNCTION ///////
 
-function startGame(){
-  
+function startGame(){  
   mysteryBox()
   initialize()
   const intervalId = setInterval(function () {
@@ -183,17 +165,17 @@ function startGame(){
       playText.style.visibility = 'visible'
       playButton.style.visibility = 'visible'
       document.querySelector('.box').style.display = 'none'
+      document.querySelector('.box').remove()
       loadGame()
       clearInterval(intervalId);
       return;
     }
-   else if( timer >= 30 && alcoholLvl < 110){
+   else if( (timer >= 90 && alcoholLvl < 100) || score > 500){
     drinkButton.style.visibility = 'hidden'
     gameScreen.style.display = 'none'
     document.querySelector('.box').style.display = 'none'
     winScreen.style.removeProperty('display')
     replayButton.onclick = () => {
-      console.log ("oeo")
       winScreen.style.display = 'none'
       gameScreen.style.removeProperty('display')
       message.style.visibility = 'hidden'
@@ -203,24 +185,11 @@ function startGame(){
       playButton.style.visibility = 'visible'
       document.querySelector('.box').remove()
       loadGame()
-
-
+      clearInterval(intervalId);
+      return;
       }   
     }
-     
-/* 
-       setTimeout(() => {
-        clearInterval(intervalId);
-         return;
-        }, 100000)
-       //clearInterval(intervalId);
-       //return;
-
-  
-     }
-*/
-    updateDrinks();
- } , 10000)
+  updateDrinks()} , 10000)
 }
 
      
@@ -228,9 +197,9 @@ function startGame(){
 
 
 function loadGame(){
-  //document.querySelector('#registration-page').style.display = "none"
+  document.querySelector('#registration-page').style.display = "none"
   
-  //document.querySelector('#game-screen').style.removeProperty('display')
+  document.querySelector('#game-screen').style.removeProperty('display')
   score = 0
   beersTotal = 0
   martinisTotal = 0
@@ -246,35 +215,34 @@ function loadGame(){
     playButton.style.visibility = 'hidden'
     playText.style.visibility = 'hidden'
     startGame()
-    
   }
 }
-winScreen.style.display = "none"
-loadGame()
-/*function registration(){
+
+
+function registration(){
   document.querySelector('#game-intro').style.display = "none"
   document.querySelector('#registration-page').style.removeProperty('display')
-  //audio.play();
+  audio.play();
   document.getElementById('start-button').style.visibility = 'visible'
   document.getElementById('start-button').onclick = () => {
     loadGame()
   }
-
 }
-*/
+
 
 //document.getElementById('game-screen').style.display = 'none'
 //window.onload = () => {
 //let sign = prompt("Welcome to Mystery Bar. What is your name?");
 //document.getElementById('name').innerText += sign
 //}
-//////// STARTING PAGE ////
+//////// STARTING PAGE //////
 
-/*window.onload = () => {
+window.onload = () => {
+   winScreen.style.display = "none"
    document.querySelector('#game-screen').style.display = "none"
    document.querySelector('#registration-page').style.display = "none"
    document.getElementById('enter-button').onclick = () => {
     registration()
    }
   }
-  */
+  
