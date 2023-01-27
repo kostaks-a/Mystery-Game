@@ -176,7 +176,8 @@ ul li {
   height: 150px;
   position: absolute;
   top: 39%;
-  left: 42%
+  left: 42%;
+  
  }
 
 
@@ -360,7 +361,7 @@ li {
 }
 
 .win-screen{
-  display: none;
+  
   width: 100%;
   
 }
